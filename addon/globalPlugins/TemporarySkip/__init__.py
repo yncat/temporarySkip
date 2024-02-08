@@ -52,10 +52,27 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	# define script
 	@script(description=_("Skip reading the selected phrase"), gesture="kb:nvda+f11")
 	def script_skipSelectedPhrase(self, gesture):
+		phrase = self._getPhraseFromMarkers()
+		if phrase is None:
+			return
+		# end no phrase selected
+		if phrase in self._skipped_phrases:
+			ui.message(_("%(phrase)s will be spoken" % {"phrase": phrase}))
+			self._skipped_phrases.remove(phrase)
+		else:
+			ui.message(_("%(phrase)s will be ignored") % {"phrase": phrase})
+			self._skipped_phrases.append(phrase)
+		# end toggle spoken or not spoken
+		# Explicitly not clear the markers because I think it's more convenient
+
+
+	def _getPhraseFromMarkers(self):
+		# Mostly from the NVDA implementation, modified a bit
 		pos = api.getReviewPosition().copy()
 		if not getattr(pos.obj, "_copyStartMarker", None):
 			ui.message(_("No start marker set"))
 			return
+		# end no start marker
 		startMarker = api.getReviewPosition().obj._copyStartMarker
 		copyMarker = startMarker.copy()
 		# Check if the end position has moved
@@ -74,20 +91,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			copyMarker.move(textInfos.UNIT_CHARACTER, 1, endPoint="end")
 		# end cursor movement
 		if copyMarker.compareEndPoints(copyMarker, "startToEnd") == 0:
-			ui.message(_("No text to skip"))
+			ui.message(_("No text selected"))
 			api.getReviewPosition().obj._copyStartMarker = None
 			return
-		# end no text to skip
-		phrase = copyMarker._get_text()
-		if phrase in self._skipped_phrases:
-			ui.message(_("%(phrase)s will be spoken" % {"phrase": phrase}))
-			self._skipped_phrases.remove(phrase)
-		else:
-			ui.message(_("%(phrase)s will be ignored") % {"phrase": phrase})
-			self._skipped_phrases.append(phrase)
-		# end toggle spoken or not spoken
-		# Explicitly not clear the markers because I think it's more convenient
-
+		# end no text
+		return copyMarker._get_text()
 
 	@script(description=_("Clear phrases to skip"), gesture="kb:nvda+shift+f11")
 	def script_clearPhrasesToSkip(self, gesture):
