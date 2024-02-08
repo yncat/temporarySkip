@@ -23,7 +23,10 @@ addon_info = {
 	"addon_summary": _("TemporarySkip"),
 	# Add-on description
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-	"addon_description": _("""This add-on allows you to temporarily register phrases that you want to ignore and skip reading them until you cancel it. Useful when reading through repetetive pre or postfixes."""),
+	"addon_description": _("""This add-on allows you to register phrases that you want to ignore temporarily. The phrases are not spoken until you cancel it.
+This add-on extends NVDA's built-in start / end marker feature. Start selecting text with NVDA+F9, move the review cursor to determine the selection and press NVDA+F11 (instead of F10!) to ignore the selected phrase.
+Selecting the previously ignored text and pressing the same command will make NVDA read it again.
+Press NVDA+Shift+F11 to clear all of the ignored text and revert everything to default."""),
 	# version
 	"addon_version": "1.0.0",
 	# Author(s)

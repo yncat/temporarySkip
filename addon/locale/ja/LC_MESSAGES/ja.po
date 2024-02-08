@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the 'TemporarySkip' package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 'TemporarySkip' '1.0.0'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2024-02-08 23:34+0900\n"
+"PO-Revision-Date: 2024-02-08 23:41+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: addon\globalPlugins\TemporarySkip\__init__.py:24
+msgid "Temporary skip"
+msgstr ""
+
+#. define script
+#: addon\globalPlugins\TemporarySkip\__init__.py:55
+msgid "Skip reading the selected phrase"
+msgstr "選択したフレーズを読み飛ばす"
+
+#: addon\globalPlugins\TemporarySkip\__init__.py:62
+#, python-format
+msgid "%(phrase)s will be spoken"
+msgstr "%(phrase)s を読み上げ"
+
+#: addon\globalPlugins\TemporarySkip\__init__.py:65
+#, python-format
+msgid "%(phrase)s will be ignored"
+msgstr "%(phrase)s を無視"
+
+#: addon\globalPlugins\TemporarySkip\__init__.py:75
+msgid "No start marker set"
+msgstr "開始位置が設定されていません"
+
+#: addon\globalPlugins\TemporarySkip\__init__.py:96
+msgid "No text selected"
+msgstr "テキスト選択なし"
+
+#: addon\globalPlugins\TemporarySkip\__init__.py:102
+msgid "Clear phrases to skip"
+msgstr "読み飛ばすフレーズをクリア"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: buildVars.py:23
+msgid "TemporarySkip"
+msgstr ""
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid ""
+"This add-on allows you to register phrases that you want to ignore "
+"temporarily. The phrases are not spoken until you cancel it.\n"
+"This add-on extends NVDA's built-in start / end marker feature. Start "
+"selecting text with NVDA+F9, move the review cursor to determine the "
+"selection and press NVDA+F11 (instead of F10!) to ignore the selected "
+"phrase.\n"
+"Selecting the previously ignored text and pressing the same command will "
+"make NVDA read it again.\n"
+"Press NVDA+Shift+F11 to clear all of the ignored text and revert everything "
+"to default."
+msgstr ""
+"このアドオンを使用すると、一時的に無視したいフレーズを登録できます。登録した"
+"フレーズは、解除するまで読み上げられなくなります。\n"
+"このアドオンは、NVDAに搭載されている開始位置/終了位置マーカーの機能を拡張し"
+"ます。 NVDA+F9 で開始位置を選択し、レビューカーソルを移動して選択範囲を決め"
+"てから、 NVDA+F11 を押すと、選択したフレーズを読み飛ばすようになります。 "
+"F10 を押す代わりに F11 を押す感じです！\n"
+"無視したのと同じテキストを選択してもう1回同じコマンドを押すと、そのフレーズ"
+"を再び読むようになります。\n"
+"NVDA+Shift+F11 で、無視していたフレーズを全て解除して、デフォルトの状態に戻"
+"ります。"
+
+#~ msgid ""
+#~ "This add-on allows you to register phrases that you want to ignore "
+#~ "temporarily. The phrases are not spoken until you cancel it."
+#~ msgstr ""
+#~ "このアドオンを使用すると、一時的に読み飛ばしたいフレーズを登録できます。"
+#~ "登録したフレーズは、解除するまで読み上げられなくなります。"
