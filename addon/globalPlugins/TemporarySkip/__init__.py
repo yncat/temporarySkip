@@ -34,6 +34,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 		def processText(locale, text, symbolLevel):
 			text = self.processText_original(locale, text, symbolLevel)
+			for phrase in self._skipped_phrases:
+				print("text is %s, phrase is %s" % (text, phrase))
+				text = text.replace(phrase, "")
 			return text
 		# end processText
 
