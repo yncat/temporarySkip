@@ -52,15 +52,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 
 	# define script
-	@script(description=_("Skip reading the selected phrase"), gesture="kb:nvda+f11")
+	@script(description=_("Toggle skip reading the selected phrase"), gesture="kb:nvda+f11")
 	def script_skipSelectedPhrase(self, gesture):
 		phrase = self._getPhraseFromMarkers()
 		if phrase is None:
 			return
 		# end no phrase selected
 		if phrase in self._skipped_phrases:
-			ui.message(_("%(phrase)s will be spoken" % {"phrase": phrase}))
 			self._skipped_phrases.remove(phrase)
+			ui.message(_("%(phrase)s will be spoken") % {"phrase": phrase})
 		else:
 			ui.message(_("%(phrase)s will be ignored") % {"phrase": phrase})
 			self._skipped_phrases.append(phrase)
@@ -102,4 +102,4 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@script(description=_("Clear phrases to skip"), gesture="kb:nvda+shift+f11")
 	def script_clearPhrasesToSkip(self, gesture):
 		self._skipped_phrases = []
-		ui.message("Everything will be spoken")
+		ui.message(_("Everything will be spoken"))
