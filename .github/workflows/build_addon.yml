@@ -9,8 +9,6 @@ on:
   pull_request:
     branches: [ main, master ]
 
-  workflow_dispatch:
-
 jobs:
   build:
 
@@ -46,6 +44,9 @@ jobs:
         path: ./*.nvda-addon
 
   upload_release:
+    permissions:
+      contents: write
+
     runs-on: ubuntu-latest
     if: ${{ startsWith(github.ref, 'refs/tags/') }}
     needs: ["build"]
