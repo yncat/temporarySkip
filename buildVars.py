@@ -44,7 +44,7 @@ Press NVDA+Shift+F11 to clear all of the ignored text and revert everything to d
 	# Add-on update channel (default is None, denoting stable releases,
 	# and for development releases, use "dev".)
 	# Do not change unless you know what you are doing!
-	"addon_updateChannel": None,
+	"addon_updateChannel": "stable",
 	# Add-on license such as GPL 2
 	"addon_license": "GPL 2.0",
 	# URL for the license document the ad-on is licensed under
