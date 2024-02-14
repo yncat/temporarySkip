@@ -44,6 +44,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		else:
 			speech.processText = processText
 
+
+	def terminate(self):
+		self._unhook()
+
+
 	def _unhook(self):
 		if hasattr(speech, "speech"):
 			speech.speech.processText = self.processText_original
