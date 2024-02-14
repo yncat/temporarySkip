@@ -28,7 +28,7 @@ This add-on extends NVDA's built-in start / end marker feature. Start selecting 
 Selecting the previously ignored text and pressing the same command will make NVDA read it again.
 Press NVDA+Shift+F11 to clear all of the ignored text and revert everything to default."""),
 	# version
-	"addon_version": "1.0.0",
+	"addon_version": "1.0.1",
 	# Author(s)
 	"addon_author": "Yukio Nozawa <personal@nyanchangames.com>",
 	# URL for the add-on documentation support
