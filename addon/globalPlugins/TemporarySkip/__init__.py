@@ -32,11 +32,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self.processText_original = speech.processText
 		# end override
 
-		def processText(locale, text, symbolLevel):
+		def processText(locale, text, symbolLevel, **kwargs):
 			for phrase in self._skipped_phrases:
 				text = text.replace(phrase, "")
 			# end replace!
-			return self.processText_original(locale, text, symbolLevel)
+			return self.processText_original(locale, text, symbolLevel, **kwargs)
 		# end processText
 
 		if hasattr(speech, "speech"):
