@@ -32,7 +32,7 @@ Press NVDA+Shift+F11 to clear all of the ignored text and revert everything to d
 	# Author(s)
 	"addon_author": "Yukio Nozawa <personal@nyanchangames.com>",
 	# URL for the add-on documentation support
-	"addon_url": "https://addons.nvda-project.org",
+	"addon_url": "https://github.com/yncat/temporarySkip",
 	# URL for the add-on repository where the source code can be found
 	"addon_sourceURL": "https://github.com/yncat/temporarySkip",
 	# Documentation file name
