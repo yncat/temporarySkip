@@ -6,9 +6,7 @@ import api
 import globalPluginHandler
 import globalVars
 import textInfos
-import threading
 import speech
-import time
 import ui
 from logHandler import log
 from scriptHandler import script
@@ -26,34 +24,30 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self):
 		super(globalPluginHandler.GlobalPlugin, self).__init__()
 		self._skipped_phrases = []
-		if hasattr(speech, "speech"):
-			self.processText_original = speech.speech.processText
-		else:
-			self.processText_original = speech.processText
-		# end override
-
-		def processText(locale, text, symbolLevel, **kwargs):
-			for phrase in self._skipped_phrases:
-				text = text.replace(phrase, "")
-			# end replace!
-			return self.processText_original(locale, text, symbolLevel, **kwargs)
-		# end processText
-
-		if hasattr(speech, "speech"):
-			speech.speech.processText = processText
-		else:
-			speech.processText = processText
-
+		# Register with NVDA's speech extension point
+		speech.extensions.filter_speechSequence.register(self._filterSpeechSequence)
 
 	def terminate(self):
-		self._unhook()
+		# Unregister from the extension point
+		speech.extensions.filter_speechSequence.unregister(self._filterSpeechSequence)
 
-
-	def _unhook(self):
-		if hasattr(speech, "speech"):
-			speech.speech.processText = self.processText_original
-		else:
-			speech.processText = self.processText_original
+	def _filterSpeechSequence(self, speechSequence, *args, **kwargs):
+		"""Filter speech sequence to remove skipped phrases."""
+		if not self._skipped_phrases:
+			return speechSequence
+		filteredSequence = []
+		for item in speechSequence:
+			if isinstance(item, str):
+				# Filter text strings by removing skipped phrases
+				for phrase in self._skipped_phrases:
+					item = item.replace(phrase, "")
+				# Only add non-empty strings
+				if item:
+					filteredSequence.append(item)
+			else:
+				# Keep speech commands (like IndexCommand, etc.) as-is
+				filteredSequence.append(item)
+		return filteredSequence
 
 
 	# define script
