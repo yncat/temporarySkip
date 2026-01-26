@@ -15,14 +15,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v6
 
     - run: echo -e "pre-commit\nscons\nmarkdown">requirements.txt
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: 3.9
+        python-version: 3.13
         cache: 'pip'
 
     - name: Install dependencies
@@ -53,12 +53,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: download releases files
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v7
     - name: Display structure of downloaded files
       run: ls -R
 
     - name: Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         files: packaged_addon/*.nvda-addon
         fail_on_unmatched_files: true
