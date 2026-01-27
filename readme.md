@@ -33,8 +33,13 @@ Skipped phrases are removed by one of the following:
 - Press NVDA+Shift+F11. Executing the command clear the settings and read everything normally.
 - Restart NVDA. The settings are not saved, so the skipped phrases will be purged on exit.
 
+## Changelog
+
+### 1.0.4
+
+- Supported NVDA 2026.1
+- It now uses the speech extension point. It no longer gets unstable when combined with other add-ons.
+
 ## Caution
 
 The Braille output is not affected in any way. On the other hand, you may want to shorten the braille display as well, but I did not do so because it would make the processing of the cursor routing (touch cursor keys)  super complicated.
-
-As usual, it hooks into processSpeech, which is used by add-ons that modify the text to be spoken. There is a possibility that this add-on conflicts with other add-ons which operate in a similar way. I can nothing to this for now since the order of hooks is uncontrollable.
