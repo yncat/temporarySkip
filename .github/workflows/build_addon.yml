@@ -60,6 +60,6 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v2
       with:
-        files: *.nvda-addon
+        files: "*.nvda-addon"
         fail_on_unmatched_files: true
         prerelease: ${{ contains(github.ref, '-') }}
