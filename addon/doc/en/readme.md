@@ -35,7 +35,7 @@ Skipped phrases are removed by one of the following:
 
 ## Changelog
 
-### 1.0.1
+### 1.0.4
 
 - Supported NVDA 2026.1
 - It now uses the speech extension point. It no longer gets unstable when combined with other add-ons.
